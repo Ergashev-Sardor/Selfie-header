@@ -131,12 +131,6 @@ div a {
   color: black;
 }
 
-.search>img {
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 30px 50px;
-  width: 20%;
-}
   /*header{
     height: 100%;
     position: sticky;
