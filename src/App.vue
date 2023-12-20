@@ -58,11 +58,10 @@
 
 <script>
   export default{
-    /*data:*/
-    methods: {
-      document: addEventListener('scroll', () => {
+    data(){
+        addEventListener ('scroll', () => {
         let myNav = document.getElementById("myNav");
-        myNav.style.opacity = window.scrollY !== 0 ? .0 : 1;
+        myNav.style.opacity = window.scrollY === 0 ? .1 : 1;
       })
     }
   }
@@ -119,7 +118,7 @@ nav {
   justify-content: space-evenly;
   margin-top: 2.5%;
   margin-left: 40%;
-  font-family: "arial";
+  font-family: "fangsong";
 }
 
 a:hover {
@@ -131,12 +130,6 @@ div a {
   color: black;
 }
 
-.search>img {
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 30px 50px;
-  width: 20%;
-}
   /*header{
     height: 100%;
     position: sticky;
