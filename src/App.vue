@@ -1,5 +1,5 @@
 <template>
-  <nav id="myNav">
+  <nav id="myNav" class="navigation-drawer">
     <div><a href="" class="logo">Logo</a></div>
     <div class="navlist">
       <a href="">explore</a>
@@ -58,11 +58,14 @@
 
 <script>
   export default{
-    /*data:*/
-    methods: {
-      document: addEventListener('scroll', () => {
+    mounted() {
+      addEventListener ('scroll', () => {
         let myNav = document.getElementById("myNav");
-        myNav.style.opacity = window.scrollY !== 0 ? .0 : 1;
+        if (window.scrollY === 0) {
+          myNav.classList.remove('nav-scrolled')
+        } else {
+          myNav.classList.add('nav-scrolled')
+        }
       })
     }
   }
@@ -91,7 +94,7 @@
   background: blue;
 }
 
-nav {
+.navigation-drawer {
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
@@ -102,6 +105,10 @@ nav {
   margin: 0 auto;
   padding: 0;
   height:100px;
+  transition: background-color 600ms linear;
+}
+.navigation-drawer.nav-scrolled {
+  background-color: green;
 }
 /*
 .logo>img {
@@ -119,7 +126,7 @@ nav {
   justify-content: space-evenly;
   margin-top: 2.5%;
   margin-left: 40%;
-  font-family: "arial";
+  font-family: "fangsong";
 }
 
 a:hover {
@@ -131,12 +138,6 @@ div a {
   color: black;
 }
 
-.search>img {
-  display: flex;
-  flex-flow: row nowrap;
-  margin: 30px 50px;
-  width: 20%;
-}
   /*header{
     height: 100%;
     position: sticky;
