@@ -1,5 +1,5 @@
 <template>
-  <nav id="myNav">
+  <nav id="myNav" class="navigation-drawer">
     <div><a href="" class="logo">Logo</a></div>
     <div class="navlist">
       <a href="">explore</a>
@@ -58,10 +58,14 @@
 
 <script>
   export default{
-    data(){
-        addEventListener ('scroll', () => {
+    mounted() {
+      addEventListener ('scroll', () => {
         let myNav = document.getElementById("myNav");
-        myNav.style.opacity = window.scrollY === 0 ? .1 : 1;
+        if (window.scrollY === 0) {
+          myNav.classList.remove('nav-scrolled')
+        } else {
+          myNav.classList.add('nav-scrolled')
+        }
       })
     }
   }
@@ -90,7 +94,7 @@
   background: blue;
 }
 
-nav {
+.navigation-drawer {
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
@@ -101,6 +105,10 @@ nav {
   margin: 0 auto;
   padding: 0;
   height:100px;
+  transition: background-color 600ms linear;
+}
+.navigation-drawer.nav-scrolled {
+  background-color: green;
 }
 /*
 .logo>img {
